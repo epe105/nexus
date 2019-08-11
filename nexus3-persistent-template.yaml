@@ -59,7 +59,7 @@ objects:
               - echo
               - ok
             failureThreshold: 3
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 1
@@ -73,7 +73,7 @@ objects:
               path: /
               port: 8081
               scheme: HTTP
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 1
@@ -89,7 +89,7 @@ objects:
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}
-        terminationGracePeriodSeconds: 30
+        terminationGracePeriodSeconds: 60
         volumes:
         - name: ${SERVICE_NAME}-data
           persistentVolumeClaim:
@@ -154,14 +154,14 @@ parameters:
 - displayName: Sonatype Nexus version
   name: NEXUS_VERSION
   required: true
-  value: 3.6.0
+  value: 3.16.2
 - description: Volume space available for Sonatype Nexus e.g. 512Mi, 2Gi
   displayName: Volume Space for Nexus
   name: VOLUME_CAPACITY
   required: true
-  value: 2Gi
+  value: 5Gi
 - description: Max memory allocated to the Nexus pod
   displayName: Max Memory
   name: MAX_MEMORY
   required: true
-  value: 1Gi
+  value: 2Gi
